@@ -29,6 +29,9 @@ async def on_message(ctx):
 
     if ctx.content.startswith('$bank'):
             await ctx.channel.send('You robbed money from the Fen bank!!!')
+            
+    if cycle.content.startwith('the discord mods'):
+        await ctx.channel.send('Nooooooooo!!!!!!!!')
 
 
 
