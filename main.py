@@ -32,6 +32,13 @@ async def on_message(ctx):
             
     if cycle.content.startwith('the discord mods'):
         await ctx.channel.send('Nooooooooo!!!!!!!!')
+    
+    if ctx.content.startwith('android is better'):
+        await ctx.channel.send('Android sucks. oh you use Android LoL')
+        await ctx.channel.send('LoL')
+        await ctx.channel.send('LoL')
+        await ctx.channel.send('LoL')
+        
 
 
 
