@@ -72,5 +72,4 @@ async def on_message(ctx):
 
   if ctx.content.startswith('/DnD-roll80'):
     await ctx.channel.send(random.randint(00, 80)('Just simplify the number, example 64 = 60 or 17 = 20'))
-client.run(
-  'MTA5MzQ5MTQ1MDkxMTY3MDMwMg.GC3B3B.zOQftu_Fb_Ieh5UspvPaOx0c01bwukbMm2a4MI')
+client.run('')
