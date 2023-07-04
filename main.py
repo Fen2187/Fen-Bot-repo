@@ -41,6 +41,10 @@ async def on_message(ctx):
     await ctx.channel.send('LoL')
     await ctx.channel.send('LoL')
     await ctx.channel.send('LoL')
+
+  if ctx.content.startswith('/play'):
+    await ctx.channel.send('Ok guys play in five minutes')
+  
   #DnD dice help thing
   if ctx.content.startswith('/DnD-help'):
     await ctx.channel.send('What can Sir Fen AI do to help')
