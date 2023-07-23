@@ -24,7 +24,7 @@ async def on_message(ctx):
 
   #special things
   if ctx.content.startswith('Happy Birthday'):
-    await ctx.channel.send('Happy Birthday' + 'From {client.user}')
+    await ctx.channel.send('Happy Birthday')
 
   if ctx.content.startswith('Merry Christmas'):
     await ctx.send('Merry Christams')
@@ -69,7 +69,13 @@ async def on_message(ctx):
     await ctx.channel.send('💀')
 
   
+
   #DnD dice help thing
+@client.event
+async def on_message(ctx):
+  if ctx.author == client.user:
+    return
+    
   if ctx.content.startswith('/DnD-help'):
     await ctx.channel.send('What can Sir Fen AI do to help')
     await ctx.channel.send('Just do /DnD to call dnd command, use - example - = 1 dice roll ---- = 4 dice roll and then add the numbers on the dice at the end example 6 = 6 sided dice')
@@ -112,6 +118,11 @@ async def on_message(ctx):
     await ctx.channel.send(random.randint(1, 8))
 
   #gaming commands
+@client.event
+async def on_message(ctx):
+  if ctx.author == client.user:
+    return
+    
   if ctx.content.startswith('/game?'):
     one = '-Valorant'
     two = '-Minecraft'
