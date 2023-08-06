@@ -47,6 +47,9 @@ async def on_message(ctx):
 
   if ctx.content.startswith('Hello'):
     await ctx.channel.send('Hello!')
+    
+  if ctx.content.startwith('lol'):
+    await ctx.channel.send('lol')
 
   if ctx.content.startswith('e'):
     await ctx.channel.send('E')
