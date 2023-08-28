@@ -1,15 +1,20 @@
 import discord
 import random
 import requests
-import json 
+import json
+import server
 from keep_alive import keep_alive
-
+import time
 
 intents = discord.Intents.default()
 intents.message_content = True
 
 client = discord.Client(intents=intents)
 
+#random stuff
+version = '2.1'
+
+money = random.randint(0,1000)
 
 @client.event
 async def on_ready():
@@ -22,7 +27,7 @@ async def on_message(ctx):
   if ctx.author == client.user:
     return
 
-  #special things
+  #special thingse
   if ctx.content.startswith('Happy Birthday'):
     await ctx.channel.send('Happy Birthday')
 
@@ -30,17 +35,26 @@ async def on_message(ctx):
     await ctx.channel.send('Merry Christams')
 
   if ctx.content.startswith('/details'):
-    await ctx.channel.send('This bot was desinged to fit the needs of the user Fen2187.')
-    await ctx.channel.send('This bot was so he could play DnD with his friends online, play games, do dumb things.')
-    await ctx.channel.send('The code is on a github for a respoatry for people to look at the code and intergrate it into there Python Discord bots.')
-    await ctx.channel.send('This was a great way for others to learn Python and app development.')
+    await ctx.channel.send(
+      'This bot was desinged to fit the needs of the user Fen2187.')
+    await ctx.channel.send(
+      'This bot was so he could play DnD with his friends online, play games, do dumb things.'
+    )
+    await ctx.channel.send(
+      'The code is on a github for a respoatry for people to look at the code and intergrate it into there Python Discord bots.'
+    )
+    await ctx.channel.send(
+      'This was a great way for others to learn Python and app development.')
     await ctx.channel.send('I hopes you and others enjoy the bot!')
-    await ctx.channel.send('Fen2187 reprogrammed this whole bot because of his developer badge taking away, he also did this because the old one was laking features and very outdated')
-    await ctx.channel.send('If you have any ideas DM Fen on his GitHub repo and he may intergrate it. The key for this bot is private and is not on GitHub')
+    await ctx.channel.send(
+      'Fen2187 reprogrammed this whole bot because of his developer badge taking away, he also did this because the old one was laking features and very outdated'
+    )
+    await ctx.channel.send(
+      'If you have any ideas DM Fen on his GitHub repo and he may intergrate it. The key for this bot is private and is not on GitHub'
+    )
     await ctx.channel.send('Hope you like me and what I do.')
     await ctx.channel.send(' - Fen Bot')
-  
-  
+
   #dumb things
   if ctx.content.startswith('hello'):
     await ctx.channel.send('Hello!')
@@ -50,11 +64,8 @@ async def on_message(ctx):
 
   if ctx.content.startswith('hi'):
     await ctx.channel.send('hi')
-  
-  if ctx.content.startwith('hack'):
-    await ctx.channel.send('hack')
-        
-  if ctx.content.startwith('lol'):
+
+  if ctx.content.startswith('lol'):
     await ctx.channel.send('lol')
 
   if ctx.content.startswith('e'):
@@ -95,12 +106,59 @@ async def on_message(ctx):
   if ctx.content.startswith('💀'):
     await ctx.channel.send('💀')
 
-  
+  if ctx.content.startswith('lets go'):
+    await ctx.channel.send('LETS GO')
 
-  #DnD dice help thing    
+    #hacking/terminal function
+  if ctx.content.startswith('lets hack'):
+    await ctx.channel.send('😎')
+    await ctx.channel.send('Get out that turbo keyboard man')
+    await ctx.channel.send('get the hack under way')
+    await ctx.channel.send('Put on some music and chill!')
+
+  if ctx.content.startswith('/terminal'):
+    await ctx.channel.send('Terminal window ' + version)
+
+  if ctx.content.startswith('ip-address'):
+    ip1g = random.randint(10, 40)
+    ip2g = random.randint(1, 9)
+    ip3g = random.randint(0, 10)
+    ip4g = random.randint(0, 11)
+    ip = str(ip1g) + '.' + str(ip2g) + '.' + str(ip3g) + '.' + str(ip4g)
+
+    await ctx.channel.send(ip)
+
+  if ctx.content.startswith('dehash'):
+    await ctx.channel.send('[Dehashing] online')
+    await ctx.channel.send('hash please')
+  if ctx.content.startswith(server.hash):
+    await ctx.channel.send(server.user)
+    await ctx.channel.send(server.password)
+    await ctx.channel.send(server.ip)
+
+  if ctx.content.startswith('ping-ip'):
+    await ctx.channel.send('[ip]:')
+
+  if ctx.content.startswith('hash_challange'):
+    await ctx.channel.send(server.hash)
+
+  if ctx.content.startswith(server.ip):
+    await ctx.channel.send('root->')
+    await ctx.channel.send('password')
+
+  if ctx.content.startswith(server.password):
+
+    money = random.randint(0,1000)
+    
+    await ctx.channel.send('Congrats you hacked ' + server.ip + ' you were able to collect there data and sell it for $' + str(money))
+
+  
+  
+  #DnD dice help thing
   if ctx.content.startswith('/D&D-help'):
     await ctx.channel.send('What can Sir Fen AI do to help')
-    await ctx.channel.send('To roll dice do /D&D and the - roll and the sided die.')
+    await ctx.channel.send(
+      'To roll dice do /D&D and the - roll and the sided die.')
     await ctx.channel.send('I guess you are now on your own fair well.')
 
   if ctx.content.startswith('/D&D-roll6'):
@@ -119,9 +177,8 @@ async def on_message(ctx):
 
   if ctx.content.startswith('/D&D-roll8'):
     await ctx.channel.send(random.randint(1, 8))
-    
 
-  #gaming commands    
+  #gaming commands
   if ctx.content.startswith('/game?'):
     one = '-Valorant'
     two = '-Minecraft'
@@ -159,6 +216,7 @@ async def on_message(ctx):
       await ctx.channel.send(ten)
     if game == 11:
       await ctx.channel.send(eleven)
+
 
 keep_alive()
 client.run('')
