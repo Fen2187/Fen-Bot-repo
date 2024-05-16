@@ -12,7 +12,8 @@ intents.message_content = True
 client = discord.Client(intents=intents)
 
 #random stuff
-version = '2.1'
+version = '2.2'
+host = 'how hosted on github'
 
 money = random.randint(0,1000)
 
